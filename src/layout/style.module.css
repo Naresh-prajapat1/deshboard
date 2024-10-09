@@ -1,0 +1,6 @@
+.l_side_bar {
+  display: flex;
+}
+.lsb_outlet {
+  flex: 1;
+}

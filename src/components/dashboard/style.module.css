@@ -1,72 +1,283 @@
-.dashboard {
+/* .dashboard {
   max-width: 1440px;
   width: 100%;
   margin: 0 auto;
-}
-.dw_header {
-  box-shadow: 0px 1px 4px 0px #15223214;
-  background: #070b1d;
-  padding: 22px 28px;
-}
-.dwh_navbar {
+} */
+
+/*dw_maindeshboard*/
+.dw_maindeshboard {
   display: flex;
-  align-items: center;
+  /* align-items: center;
+  justify-content: center; */
 }
-.dwhn_search {
-  display: flex;
-  align-items: center;
-  padding-left: 106px;
+/* siderbar css*/
+
+/*dwm_mainbody*/
+.dwm_mainbody {
   flex: 1;
+  width: 100%;
+  height: 100%;
+  background-color: #fff6f4;
 }
-.dwhn_search label {
-  display: inline-block;
-  margin-right: 12px;
+.dwm_mainbody .dwmm_wrapper {
 }
-.dwhn_search input {
-  color: #fff;
-  background-color: transparent;
-  border: none;
-  font-size: 14px;
-  padding: 10px 0;
+.dw_growgrafhas {
+  padding: 0 40px 28px 40px;
 }
-.dwhn_search input:focus {
-  border: none;
-  outline: none;
-}
-.dwhn_user {
+.dwgi_smallgrafh {
   display: flex;
   align-items: center;
-  gap: 36px;
-  color: #fff;
+  justify-content: space-between;
 }
-.du_userName {
-  display: flex;
-  align-items: center;
+.ds_totalreven,
+.ds_orders {
+  padding: 1px 43px;
 }
-.du_userName span.dun_latter {
-  margin-right: 12px;
-  width: 40px;
-  height: 40px;
-  background-color: #1fd286;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 28px;
-  border-radius: 30px;
+.ds_totalreven,
+.ds_orders,
+.ds_unique_visit,
+.ds_newUsers,
+.ds_existingUsers {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 40px;
+  box-shadow: 0px 1px 4px 0px #15223214;
+  background-color: #fff;
+  border-radius: 4px;
 }
-.du_userName span.dun_name {
+.ds_unique_visit,
+.ds_newUsers,
+.ds_existingUsers {
+  padding: 1px 18px;
+}
+.ds_totalreven h5,
+.ds_orders h5,
+.ds_unique_visit h5,
+.ds_newUsers h5,
+.ds_existingUsers h5 {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 28px;
+  color: #131523;
+  margin: 0;
+}
+.ds_totalreven p,
+.ds_orders p,
+.ds_unique_visit p,
+.ds_newUsers p,
+.ds_existingUsers p {
+  color: #5a607f;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 20px;
+}
+.ds_totalreven span,
+.ds_orders span,
+.ds_newUsers span,
+.ds_existingUsers span {
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #06a561;
+}
+.ds_unique_visit span {
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #f0142f;
+}
+.dwgi_bigGrafh {
+  display: flex;
+  align-items: center;
+  margin-top: 24px;
+}
+.dwgib_bigOrder1 {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: #fff;
+  padding: 28px;
+  border-radius: 4px;
+}
+.db_order_over_time {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.db_order_over_time h5 {
+  flex: 1;
+  color: #131523;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+.db_order_over_time select {
+  border: none;
+  color: #5a607f;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
-  margin-right: 17px;
 }
-.du_userName span.dun_icon {
+.db_order_month {
+  display: flex;
+  align-items: center;
+  margin-bottom: 28px;
+}
+.dom_month1 {
+  padding-right: 40px;
+}
+.dom_month2 {
+  flex: 1;
+}
+.dom_month1 h6,
+.dom_month2 h6 {
+  color: #131523;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+}
+.dom_month1 p,
+.dom_month2 p {
+  color: #5a607f;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+.dom_month3 {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.dom_month3 p {
+  display: flex;
+  align-items: center;
+}
+.dom_month3 p:first-child span {
+  width: 20px;
+  height: 20px;
+  background: #d9e1ec;
+  margin-right: 8px;
+
   display: inline-block;
-  border-left: 2px solid;
-  border-bottom: 2px solid;
-  width: 10px;
-  height: 10px;
-  transform: rotate(-45deg);
+  border-radius: 4px;
+}
+.dom_month3 p:last-child span {
+  width: 20px;
+  height: 20px;
+  background: #1e5eff;
+  margin-right: 8px;
+
+  display: inline-block;
+  border-radius: 4px;
+}
+.dwgib_bigOrder2 {
+  background-color: #fff;
+  border-radius: 4px;
+
+  padding: 28px;
+  margin-left: 30px;
+}
+.dwgib_bigOrder2 .dwb_inner {
+  display: flex;
+  flex-direction: column;
+}
+.dwgib_bigOrder2 .dwb_inner h4 {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #131523;
+  margin-bottom: 24px;
+}
+.dwgib_bigOrder2 .dwb_inner p.dwbi_sold {
+  margin-bottom: 20px;
+}
+.dwgib_bigOrder2 .dwb_inner p.dwbi_sold h5,
+.dwgib_bigOrder2 .dwb_inner p.dwbi_revenue h5 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: #131523;
+}
+.dwgib_bigOrder2 .dwb_inner p.dwbi_sold span,
+.dwgib_bigOrder2 .dwb_inner p.dwbi_revenue span {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #5a607f;
+}
+.dwgib_bigOrder2 .dwb_inner p.dwbi_revenue {
+  border-bottom: 1px solid #e6e9f4;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+}
+.dwbi_chartImg {
+  flex: 1;
+}
+.dwgi_Recent_Transactions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 24px;
+  gap: 30px;
+}
+.dwgi_Recent_Transactions .drt_recent {
+  background-color: #fff;
+  padding: 28px;
+  width: 100%;
+}
+.dwgi_Recent_Transactions .drt_recent h5 {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #131523;
+}
+.dwgi_Recent_Transactions .drt_recent table {
+  text-align: left;
+  width: 100%;
+}
+.dwgi_Recent_Transactions .drt_recent > table > tr {
+  border-bottom: 1px solid #000;
+}
+.dwgi_Recent_Transactions .drt_recent table th {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #5a607f;
+
+  padding: 13px 60px 13px 0;
+}
+.dwgi_Recent_Transactions .drt_recent table td {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #131523;
+
+  padding: 13px 60px 13px 0;
+}
+.dwgi_Recent_Transactions .drt_recent table td.jagarnathtr {
+  background-color: #c4f8e2;
+  color: #12aa69;
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 4px;
+}
+.dwgi_Recent_Transactions .drt_recent table td.anandtr {
+  background-color: #e6e9f4;
+  color: #6b718d;
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 4px;
+}
+.t_row_img {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.drt_productSold {
+  width: 100%;
+}
+.drt_productSold .drt_recent table.drtr_table th,
+.drt_productSold .drt_recent table.drtr_table td {
+  padding: 5px 60px 4px 0;
 }
