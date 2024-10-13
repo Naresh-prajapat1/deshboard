@@ -46,7 +46,7 @@ const SideBar = () => {
               </Link>
             </div>
             <div className={styles.dsw_homeDashboard}>
-              <Link>
+              <Link to={"/categories"}>
                 <span>
                   <CategoriesIcon />
                 </span>
