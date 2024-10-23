@@ -10,34 +10,31 @@ const MainDashboardHeading = ({
   title2,
   outlineBtn,
   fillBtn,
+  type,
 }) => {
   return (
     <>
       <div className={styles.dw_mainTitle}>
         <h4>{title}</h4>
         {outlineBtn && (
-          <div className={styles.dwmt_manag}>
-            <Link>
-              {icon ? (
-                <span>
-                  <GlobalSettingIcon />
-                </span>
-              ) : (
-                ""
-              )}
-              <span>{title1}</span>
-            </Link>
-          </div>
+          <button type={type} className={styles.dwmt_manag}>
+            {icon ? (
+              <span>
+                <GlobalSettingIcon />
+              </span>
+            ) : (
+              ""
+            )}
+            <span>{title1}</span>
+          </button>
         )}
         {fillBtn && (
-          <div className={styles.dwmt_manag2}>
-            <Link>
-              <span>
-                <PlusIcon />
-              </span>
-              <span>{title2}</span>
-            </Link>
-          </div>
+          <button type={type} className={styles.dwmt_manag2}>
+            <span>
+              <PlusIcon />
+            </span>
+            <span>{title2}</span>
+          </button>
         )}
       </div>
     </>

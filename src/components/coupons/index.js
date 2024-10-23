@@ -1,121 +1,206 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import CouponData from "../../productData/coupon.json";
+import { Link } from "react-router-dom";
 import styles from "./style.module.css";
+import DiscountIcon from "../../icons/dicount";
 import MainDashboardHeading from "../mainDashboardHeding";
 import SearchIcon from "../../icons/search";
 import EditIcon from "../../icons/edit";
 import RemoveIcon from "../../icons/remove";
-import { Link } from "react-router-dom";
-import ProductIcon from "../../icons/product";
-const Coupons = () => {
-  return (
-    <div className={styles.coupons}>
-      <MainDashboardHeading
-        title={"Customers"}
-        fillBtn={true}
-        title2={"Create"}
-        icon={false}
-      />
-      <div className={styles.c_name}>
-        <div className={styles.cn_wrapper}>
-          <div className={styles.cnw_All_customers}>
-            <span>All Coupons</span>
-            <span>Active Coupons</span>
-            <span>Expired Coupons</span>
-          </div>
-          <div className={styles.of_filter_search}>
-            <div className={styles.offs_filter}>
-              <div className={styles.offsf_filter}>
-                <select>
-                  <option>Filter</option>
-                </select>
-              </div>
-              <div className={styles.offsf_search}>
-                <label for={"text"}>
-                  <SearchIcon />
-                </label>
-                <input type="text" id="text" placeholder="Search..." />
-              </div>
-            </div>
-            <div className={styles.offs_remove}>
-              <p>
-                <span>
-                  <EditIcon />
-                </span>
-                <span>
-                  <RemoveIcon />
-                </span>
-              </p>
-            </div>
-          </div>
-          <div className={styles.order_details}>
-            <div className={styles.order_details1}>
-              <table>
-                <tr>
-                  <th className={styles.od_head_order}>
-                    <input type="checkbox" className={styles.od_check} />
-                    Coupon Name
-                  </th>
-                  <th>Usage</th>
-                  <th>Status</th>
-                  <th>Date</th>
-                </tr>
-                {/* {productItem.map((item, index) => ( */}
-                <tr>
-                  <td className={styles.od_tr_paid3}>
-                    <div className={styles.otp_img}>
-                      <input type="checkbox" />
 
-                      <span>
-                        <ProductIcon />
-                      </span>
-                      <h5>
-                        Summer discount 10% off
-                        <p>Summer2020</p>
-                      </h5>
+const Coupons = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [statusFilter, setStatusFilter] = useState("");
+  const [filteredCoupons, setFilteredCoupons] = useState(CouponData);
+  const [selectedCoupons, setSelectedCoupons] = useState([]);
+  const [selectAll, setSelectAll] = useState(false);
+
+  const ordersPerPage = 10;
+
+  useEffect(() => {
+    let filteredData = CouponData;
+
+    if (statusFilter) {
+      filteredData = filteredData.filter(
+        (coupon) => coupon.status.toLowerCase() === statusFilter.toLowerCase()
+      );
+    }
+
+    if (searchTerm) {
+      filteredData = filteredData.filter((coupon) =>
+        coupon.code.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
+    setFilteredCoupons(filteredData);
+    setCurrentPage(1);
+  }, [statusFilter, searchTerm]);
+
+  const indexOfLastOrder = currentPage * ordersPerPage;
+  const indexOfFirstOrder = indexOfLastOrder - ordersPerPage;
+  const currentOrders = filteredCoupons.slice(
+    indexOfFirstOrder,
+    indexOfLastOrder
+  );
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const totalPages = Math.ceil(filteredCoupons.length / ordersPerPage);
+  const handlePreviousPage = () => {
+    if (currentPage > 1) paginate(currentPage - 1);
+  };
+  const handleNextPage = () => {
+    if (currentPage < totalPages) paginate(currentPage + 1);
+  };
+
+  const handleSelectAll = () => {
+    if (selectAll) {
+      setSelectedCoupons([]);
+    } else {
+      const allCouponIds = currentOrders.map((coupon) => coupon.id);
+      setSelectedCoupons(allCouponIds);
+    }
+    setSelectAll(!selectAll);
+  };
+
+  const handleSelectCoupon = (id) => {
+    setSelectedCoupons((prevSelected) =>
+      prevSelected.includes(id)
+        ? prevSelected.filter((couponId) => couponId !== id)
+        : [...prevSelected, id]
+    );
+  };
+
+  const handleDeleteSelected = () => {
+    const remainingCoupons = filteredCoupons.filter(
+      (coupon) => !selectedCoupons.includes(coupon.id)
+    );
+    setFilteredCoupons(remainingCoupons);
+    setSelectedCoupons([]);
+    setSelectAll(false);
+  };
+
+  return (
+    <div className={styles.coupons_main}>
+      <MainDashboardHeading
+        title={"Coupons"}
+        outlineBtn={false}
+        icon={false}
+        fillBtn={true}
+        fillTitle={"Create"}
+      />
+      <div className={styles.order_footer}>
+        <div className={styles.tabs}>
+          <Link to="/">All Customers</Link>
+          <Link to="/">New Customers</Link>
+          <Link to="/">From Europe</Link>
+          <Link to="/">Returning Customers</Link>
+        </div>
+
+        <div className={styles.offs_filter}>
+          <div className={styles.offsf_filter}>
+            <select
+              value={statusFilter}
+              onChange={(e) => setStatusFilter(e.target.value)}>
+              <option value={""}>Filter by Status</option>
+              <option value={"Active"}>Active</option>
+              <option value={"Expired"}>Expired</option>
+            </select>
+          </div>
+
+          <div className={styles.offsf_search}>
+            <label htmlFor={"search1"}>
+              <SearchIcon />
+            </label>
+            <input
+              type="text"
+              id="search1"
+              name="search"
+              placeholder="Search by Code..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
+
+          <div className={styles.offs_remove}>
+            <Link to={""}>
+              <EditIcon />
+            </Link>
+            <button onClick={handleDeleteSelected}>
+              <RemoveIcon />
+            </button>
+          </div>
+        </div>
+
+        <table className={styles.order_table}>
+          <thead>
+            <tr className={styles.order_data_wrapper}>
+              <th>
+                <input
+                  type="checkbox"
+                  checked={selectAll}
+                  onChange={handleSelectAll}
+                />
+                <span>Coupon Name</span>
+              </th>
+              <th>Usage</th>
+              <th>Status</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {currentOrders.map((coupon) => (
+              <tr className={styles.order_data_wrapper} key={coupon.id}>
+                <td>
+                  <input
+                    type="checkbox"
+                    checked={selectedCoupons.includes(coupon.id)}
+                    onChange={() => handleSelectCoupon(coupon.id)}
+                  />
+                  <div className={styles.product_info}>
+                    <div className={styles.customer_name}>
+                      <DiscountIcon />
                     </div>
-                  </td>
-                  <td>15 times</td>
-                  <td className={styles.odtrp_active}>
-                    <span>Active</span>
-                  </td>
-                  <td className={styles.od_tr_paid1}>
-                    May 5, 2020 - May 15, 2020
-                  </td>
-                </tr>
-                {/* ))} */}
-              </table>
-            </div>
-          </div>
-          <div className={styles.od_pagination}>
-            <div className={styles.odp_page}>
-              <ul>
-                <li>
-                  <Link>1</Link>
-                </li>
-                <li>
-                  <Link>2</Link>
-                </li>{" "}
-                <li>
-                  <Link>3</Link>
-                </li>{" "}
-                <li>
-                  <Link>4</Link>
-                </li>{" "}
-                <li>
-                  <Link>... </Link>
-                </li>
-                <li>
-                  <Link>24</Link>
-                </li>
-              </ul>
-            </div>
-            <div className={styles.odp_result}>
-              <span>274 Results</span>
-            </div>
-          </div>
+                    <div className={styles.product_name}>
+                      <div className={styles.coupon_name}>{coupon.name}</div>
+                      <span>{coupon.code}</span>
+                    </div>
+                  </div>
+                </td>
+                <td>{coupon.usage} items</td>
+                <td>{coupon.status}</td>
+                <td>
+                  <span>{coupon.date}</span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        <div className={styles.pagination}>
+          <button
+            onClick={handlePreviousPage}
+            className={currentPage > 1 ? styles.active : ""}>
+            &#8592;
+          </button>
+          {Array.from({ length: totalPages }, (_, index) => (
+            <button
+              key={index}
+              onClick={() => paginate(index + 1)}
+              className={currentPage === index + 1 ? styles.active : ""}>
+              {index + 1}
+            </button>
+          ))}
+          <button
+            onClick={handleNextPage}
+            className={currentPage < totalPages ? styles.active : ""}>
+            &#8594;
+          </button>
         </div>
       </div>
     </div>
   );
 };
+
 export default Coupons;

@@ -1,0 +1,152 @@
+[
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "emailAddress": "john.doe@example.com",
+    "phoneNumber": "+1234567890",
+    "customerAddress": {
+      "address": "123 Main Street",
+      "apartment": "Apt 101",
+      "city": "New York",
+      "country": "United States",
+      "postalCode": "10001",
+      "phone": "+1234567890"
+    },
+    "customerNotes": "Regular customer, prefers evening delivery."
+  },
+  {
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "emailAddress": "jane.smith@example.com",
+    "phoneNumber": "+0987654321",
+    "customerAddress": {
+      "address": "456 Elm Street",
+      "apartment": null,
+      "city": "Los Angeles",
+      "country": "United States",
+      "postalCode": "90001",
+      "phone": "+0987654321"
+    },
+    "customerNotes": "VIP customer, frequent buyer."
+  },
+  {
+    "firstName": "Alice",
+    "lastName": "Johnson",
+    "emailAddress": "alice.johnson@example.com",
+    "phoneNumber": "+1122334455",
+    "customerAddress": {
+      "address": "789 Oak Avenue",
+      "apartment": "Unit 202",
+      "city": "Chicago",
+      "country": "United States",
+      "postalCode": "60601",
+      "phone": "+1122334455"
+    },
+    "customerNotes": "Requires special handling for fragile items."
+  },
+  {
+    "firstName": "Bob",
+    "lastName": "Brown",
+    "emailAddress": "bob.brown@example.com",
+    "phoneNumber": "+1231231234",
+    "customerAddress": {
+      "address": "321 Maple Street",
+      "apartment": "Suite 400",
+      "city": "San Francisco",
+      "country": "United States",
+      "postalCode": "94101",
+      "phone": "+1231231234"
+    },
+    "customerNotes": "Prefers email communication."
+  },
+  {
+    "firstName": "Charlie",
+    "lastName": "Davis",
+    "emailAddress": "charlie.davis@example.com",
+    "phoneNumber": "+5675675678",
+    "customerAddress": {
+      "address": "654 Pine Street",
+      "apartment": null,
+      "city": "Miami",
+      "country": "United States",
+      "postalCode": "33101",
+      "phone": "+5675675678"
+    },
+    "customerNotes": "Leaves detailed feedback for every order."
+  },
+  {
+    "firstName": "Diana",
+    "lastName": "Evans",
+    "emailAddress": "diana.evans@example.com",
+    "phoneNumber": "+8768768765",
+    "customerAddress": {
+      "address": "987 Birch Avenue",
+      "apartment": "Apt 305",
+      "city": "Seattle",
+      "country": "United States",
+      "postalCode": "98101",
+      "phone": "+8768768765"
+    },
+    "customerNotes": "Prefers weekend deliveries."
+  },
+  {
+    "firstName": "Edward",
+    "lastName": "Ford",
+    "emailAddress": "edward.ford@example.com",
+    "phoneNumber": "+1233211234",
+    "customerAddress": {
+      "address": "123 Cedar Drive",
+      "apartment": null,
+      "city": "Austin",
+      "country": "United States",
+      "postalCode": "73301",
+      "phone": "+1233211234"
+    },
+    "customerNotes": "Requests gift wrap for orders."
+  },
+  {
+    "firstName": "Fiona",
+    "lastName": "Green",
+    "emailAddress": "fiona.green@example.com",
+    "phoneNumber": "+3214325432",
+    "customerAddress": {
+      "address": "456 Spruce Road",
+      "apartment": "Unit 2A",
+      "city": "Boston",
+      "country": "United States",
+      "postalCode": "02201",
+      "phone": "+3214325432"
+    },
+    "customerNotes": "Priority customer, expedite shipping."
+  },
+  {
+    "firstName": "George",
+    "lastName": "Hill",
+    "emailAddress": "george.hill@example.com",
+    "phoneNumber": "+6546546543",
+    "customerAddress": {
+      "address": "789 Chestnut Lane",
+      "apartment": null,
+      "city": "Dallas",
+      "country": "United States",
+      "postalCode": "75201",
+      "phone": "+6546546543"
+    },
+    "customerNotes": "Buys in bulk, frequent large orders."
+  },
+  {
+    "firstName": "Hannah",
+    "lastName": "Ivy",
+    "emailAddress": "hannah.ivy@example.com",
+    "phoneNumber": "+7897897896",
+    "customerAddress": {
+      "address": "987 Redwood Avenue",
+      "apartment": "Apt 104",
+      "city": "Denver",
+      "country": "United States",
+      "postalCode": "80201",
+      "phone": "+7897897896"
+    },
+    "customerNotes": "Customer requires signed delivery."
+  }
+]

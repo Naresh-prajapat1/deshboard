@@ -67,11 +67,14 @@ const Customer = () => {
                   <td className={styles.od_tr_paid3}>
                     <div className={styles.otp_img}>
                       <input type="checkbox" />
-
-                      <span>R</span>
-                      <h5>
-                        <p>Rakesh Mishra</p>
-                      </h5>
+                      <Link
+                        className={styles.customer_link}
+                        to={"/customerInfo"}>
+                        <span>R</span>
+                        <h5>
+                          <p>Rakesh Mishra</p>
+                        </h5>
+                      </Link>
                     </div>
                   </td>
                   <td>Sawaynchester</td>

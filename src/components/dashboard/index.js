@@ -13,7 +13,103 @@ import img1 from "../../assets/images/table1.png";
 import img2 from "../../assets/images/table2.png";
 import img3 from "../../assets/images/table3.png";
 import img4 from "../../assets/images/table4.png";
+import ReactECharts from "echarts-for-react";
+import { type } from "@testing-library/user-event/dist/type";
 const Dashboard = () => {
+  const option = {
+    xAxis: {
+      type: "category",
+      data: [
+        "4am",
+        "5am",
+        "6am",
+        "7am",
+        "8am",
+        "9am",
+        "10am",
+        "11am",
+        "1am",
+        "2am",
+      ],
+      axisLine: {
+        lineStyle: {
+          type: "dashed",
+        },
+      },
+    },
+    yAxis: {
+      type: "value",
+      splitLine: {
+        show: true,
+        lineStyle: {
+          type: "dashed",
+        },
+      },
+    },
+
+    series: [
+      {
+        showSymbol: false,
+        data: [10, 15, 10, 25, 34, 30, 30, 34, 50, 44, 25, 25, 35],
+        type: "line",
+        lineStyle: {
+          width: 2,
+        },
+      },
+    ],
+  };
+  const option1 = {
+    tooltip: {
+      trigger: "item",
+      formatter: "{a} <br/>{b} : {c} ({d}%), <br/>{name1} : {value1} ",
+    },
+    // height: "200",
+    color: "#1fd286",
+
+    xAxis: {
+      type: "category",
+      data: ["12", "13", "14", "15", "16", "17", "18"],
+      axisLine: {
+        show: false,
+      },
+      axisTick: {
+        show: false,
+      },
+    },
+    yAxis: {
+      type: "value",
+      splitLine: {
+        show: false,
+      },
+      minorSplitLine: {
+        show: false,
+      },
+      lines: {
+        show: false,
+      },
+      axisLabel: {
+        show: false,
+      },
+    },
+    series: [
+      {
+        data: [10, 15, 10, 25, 34, 30, 30, 34, 50, 44, 25, 25, 35],
+        type: "bar",
+        barWidth: "10",
+        height: "40%",
+
+        itemStyle: {
+          emphasis: {
+            barBorderRadius: [50, 50],
+          },
+          normal: {
+            barBorderRadius: [50, 50, 50, 50],
+          },
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <div className={styles.dashboard}>
@@ -110,7 +206,7 @@ const Dashboard = () => {
                           </div>
                         </div>
                         <div className={styles.db_chartImage}>
-                          <img src={image6} />
+                          <ReactECharts option={option} />
                         </div>
                       </div>
                       <div className={styles.dwgib_bigOrder2}>
@@ -125,7 +221,7 @@ const Dashboard = () => {
                             <span>Revenue</span>
                           </p>
                           <div className={styles.dwbi_chartImg}>
-                            <img src={image7} />
+                            <ReactECharts option={option1} />
                           </div>
                         </div>
                       </div>

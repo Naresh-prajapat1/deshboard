@@ -54,7 +54,7 @@ const SideBar = () => {
               </Link>
             </div>
             <div className={styles.dsw_homeDashboard}>
-              <Link>
+              <Link to={"/customer"}>
                 <span>
                   <CostomerIcon />
                 </span>
@@ -62,7 +62,7 @@ const SideBar = () => {
               </Link>
             </div>
             <div className={styles.dsw_homeDashboard}>
-              <Link>
+              <Link to={"/report"}>
                 <span>
                   <ReportIcon />
                 </span>
@@ -70,7 +70,7 @@ const SideBar = () => {
               </Link>
             </div>
             <div className={styles.dsw_homeDashboard}>
-              <Link>
+              <Link to={"/coupons"}>
                 <span>
                   <CouponsIcon />
                 </span>
@@ -89,7 +89,7 @@ const SideBar = () => {
           <div className={styles.dwmsw_otherInfo}>
             <h6>Other Information</h6>
             <div className={styles.dsw_homeDashboard}>
-              <Link>
+              <Link to={"/knowledegBase"}>
                 <span>
                   <KnowlegIcon />
                 </span>

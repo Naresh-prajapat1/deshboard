@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./style.module.css";
 import MainDashboardHeading from "../mainDashboardHeding";
 import { Link } from "react-router-dom";
-
 const AddProducts = () => {
   return (
     <div className={styles.add_products}>

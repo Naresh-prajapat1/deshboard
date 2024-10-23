@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./style.module.css";
 import MainDashboardHeading from "../mainDashboardHeding";
+import { Link } from "react-router-dom";
 const CustomerInfo = () => {
   return (
     <div className={styles.customer_info}>
@@ -87,7 +88,9 @@ const CustomerInfo = () => {
             <div className={styles.ciwov_overview}>
               <div className={styles.ciwovo_edit}>
                 <h5>Overview</h5>
-                <span>Edit</span>
+                <span>
+                  <Link to={"/addCustomer"}>Edit</Link>
+                </span>
               </div>
               <div className={styles.ciwov_address}>
                 <span>Address</span>

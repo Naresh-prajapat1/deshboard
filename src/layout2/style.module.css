@@ -1,0 +1,11 @@
+.layOut21 {
+  background-color: #f5f6fa;
+}
+.layout2 {
+  display: flex;
+  padding: 0 40px 40px 40px;
+  gap: 30px;
+}
+.l_2 {
+  flex: 1;
+}

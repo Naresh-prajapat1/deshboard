@@ -99,6 +99,8 @@
   background-color: #fff;
   padding: 28px;
   border-radius: 4px;
+  max-width: 1200px;
+  width: 100%;
 }
 .db_order_over_time {
   display: flex;
@@ -174,7 +176,8 @@
 .dwgib_bigOrder2 {
   background-color: #fff;
   border-radius: 4px;
-
+  max-width: 325px;
+  width: 100%;
   padding: 28px;
   margin-left: 30px;
 }
@@ -209,10 +212,11 @@
 .dwgib_bigOrder2 .dwb_inner p.dwbi_revenue {
   border-bottom: 1px solid #e6e9f4;
   padding-bottom: 25px;
-  margin-bottom: 25px;
+  /* margin-bottom: 25px;  */
 }
 .dwbi_chartImg {
-  flex: 1;
+  /* flex: 1; */
+  height: 223px;
 }
 .dwgi_Recent_Transactions {
   display: flex;
